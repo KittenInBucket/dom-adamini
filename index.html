@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#303030">
+  <meta name="description" content="История, видео и галерея Дома Адамини в Санкт-Петербурге.">
+  <title>Дом Адамини — история здания</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a href="#history">История</a>
+      <a href="#video">Видео</a>
+      <a href="#gallery">Галерея</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top" aria-label="Дом Адамини">
+      <div class="hero-shade"></div>
+      <h1>Дом Адамини</h1>
+      <a class="scroll-down" href="#history" aria-label="Перейти к истории">
+        <svg class="scroll-down__icon" viewBox="0 0 32 52" aria-hidden="true" focusable="false">
+          <path d="M16 2 V46 M5 35 L16 46 L27 35" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </section>
+
+    <section class="content-section history-section" id="history">
+      <div class="container">
+        <h2 class="section-title">01. История дома Адамини</h2>
+        <div class="history-grid">
+          <div class="history-copy">
+            <p>Здание построили в 1823–1827 годах по проекту архитектора Доменико Адамини.</p>
+            <p>Дом возвели для купца Антонова — отсюда и второе название. Это яркий образец позднего классицизма: трёхэтажное здание с выразительным угловым объёмом и рустовкой в нижнем ярусе, характерной для петербургской застройки той эпохи.</p>
+            <p>Дом сразу стал заметной городской доминантой на перекрёстке у Марсова поля. В XIX веке здесь жили и бывали представители творческой интеллигенции, а помещения активно сдавали под магазины и конторы — типичный «доходный» характер здания.</p>
+          </div>
+          <figure class="history-photo">
+            <img src="assets/history.jpg" alt="Фасад Дома Адамини на углу улицы">
+          </figure>
+          <div class="history-copy">
+            <p>В начале XX века дом оставался крупным доходным зданием. Во время Первой мировой войны и в революционный период его статус не менялся кардинально: он продолжал использоваться как жилой и коммерческий объект, хотя экономическая ситуация и управление городской недвижимостью сильно менялись.</p>
+            <p>Во время Великой Отечественной войны дом Адамини серьёзно пострадал. В 1941 году в здание попала авиабомба, из-за чего часть конструкций была разрушена. В условиях блокады любые восстановительные работы были крайне ограничены, но сохранение и восстановление значимых городских зданий считалось важной задачей для города.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section video-section" id="video">
+      <div class="container">
+        <h2 class="section-title">02. Видео о доме Адамини</h2>
+        <figure class="video-figure">
+          <button class="video-preview" id="open-video" type="button" data-video-src="assets/videos/dom-adamini.mp4" aria-label="Воспроизвести видео">
+            <img src="assets/video-poster.jpg" alt="Дом Адамини: архивная фотография и современный вид здания">
+          </button>
+          <figcaption>«Дом в прошлом и настоящем: история разрушения и восстановления»</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="content-section gallery-section" id="gallery">
+      <div class="container">
+        <h2 class="section-title">03. Галерея</h2>
+        <div class="gallery-grid" aria-label="Фотографии Дома Адамини">
+          <div class="gallery-column">
+            <button class="gallery-item" type="button"><img src="assets/gallery-01.jpg" alt="Дом Адамини у канала на закате"></button>
+            <button class="gallery-item" type="button"><img src="assets/gallery-02.jpg" alt="Дом Адамини со стороны канала"></button>
+            <button class="gallery-item" type="button"><img src="assets/gallery-03.jpg" alt="Фасад здания вечером зимой"></button>
+          </div>
+          <div class="gallery-column">
+            <button class="gallery-item" type="button"><img src="assets/gallery-04.jpg" alt="Историческая фотография фасада"></button>
+            <button class="gallery-item" type="button"><img src="assets/gallery-05.jpg" alt="Лестница и перила внутри здания"></button>
+            <button class="gallery-item" type="button"><img src="assets/gallery-06.jpg" alt="Главный фасад Дома Адамини зимой"></button>
+          </div>
+          <div class="gallery-column">
+            <button class="gallery-item" type="button"><img src="assets/gallery-07.jpg" alt="Дом Адамини и канал зимой"></button>
+            <button class="gallery-item" type="button"><img src="assets/gallery-08.jpg" alt="Вид сверху на лестничный пролёт"></button>
+            <button class="gallery-item" type="button"><img src="assets/gallery-09.jpg" alt="Архивный вид повреждённого здания"></button>
+          </div>
+          <div class="gallery-column">
+            <button class="gallery-item" type="button"><img src="assets/gallery-10.jpg" alt="Угловой фасад здания в солнечный день"></button>
+            <button class="gallery-item" type="button"><img src="assets/gallery-11.jpg" alt="Дом Адамини после разрушений во время войны"></button>
+            <button class="gallery-item" type="button"><img src="assets/gallery-12.jpg" alt="Интерьер с колоннами и лестницей"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Made by Vidutina Yaroslava</div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Просмотр фотографии">
+    <button class="modal-close" id="close-lightbox" type="button" aria-label="Закрыть">×</button>
+    <img id="lightbox-image" src="" alt="">
+  </div>
+
+  <div class="video-modal" id="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Видео о доме Адамини">
+    <button class="modal-close" id="close-video" type="button" aria-label="Закрыть">×</button>
+    <div class="video-modal-content" id="video-modal-content"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
