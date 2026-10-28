@@ -3,99 +3,298 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#303030">
-  <meta name="description" content="История, видео и галерея Дома Адамини в Санкт-Петербурге.">
+  <meta name="theme-color" content="#1a1916">
+  <meta name="description" content="История, хронология, архитектура, видео и галерея Дома Адамини в Санкт-Петербурге.">
+  <meta property="og:title" content="Дом Адамини — история здания">
+  <meta property="og:description" content="Поздний классицизм, разрушение и восстановление: история Дома Адамини в Санкт-Петербурге.">
+  <meta property="og:image" content="assets/hero.jpg">
   <title>Дом Адамини — история здания</title>
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#top" aria-label="Дом Адамини — наверх">Дом Адамини</a>
     <nav class="main-nav" aria-label="Основная навигация">
       <a href="#history">История</a>
+      <a href="#timeline">Хронология</a>
+      <a href="#then-now">Тогда и сейчас</a>
+      <a href="#style">Архитектура</a>
       <a href="#video">Видео</a>
       <a href="#gallery">Галерея</a>
     </nav>
+    <span class="header-years" aria-hidden="true">1823 — 1827</span>
+    <span class="progress" id="progress" aria-hidden="true"></span>
   </header>
 
   <main>
+    <!-- ПЕРВЫЙ ЭКРАН -->
     <section class="hero" id="top" aria-label="Дом Адамини">
-      <div class="hero-shade"></div>
-      <h1>Дом Адамини</h1>
+      <img class="hero__img" id="hero-img" src="assets/hero.jpg" alt="Колоннада Дома Адамини у моста через канал" fetchpriority="high">
+      <div class="hero__colonnade" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow"><span></span>Санкт-Петербург · Марсово поле</p>
+        <h1 class="hero__title">
+          <span class="hero__line"><span>Дом</span></span>
+          <span class="hero__line hero__line--shift"><span>Адамини</span></span>
+        </h1>
+        <p class="hero__lead">Поздний классицизм, разрушение и возрождение одного здания</p>
+      </div>
+
       <a class="scroll-down" href="#history" aria-label="Перейти к истории">
+        <svg class="scroll-down__ring" viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+          <defs><path id="ring-path" d="M80,80 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0"/></defs>
+          <text><textPath href="#ring-path" startOffset="0">листай вниз · листай вниз · листай вниз · листай вниз ·</textPath></text>
+        </svg>
         <svg class="scroll-down__icon" viewBox="0 0 32 52" aria-hidden="true" focusable="false">
-          <path d="M16 2 V46 M5 35 L16 46 L27 35" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M16 4 V46 M6 36 L16 46 L26 36" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
+
+      <p class="hero__vertical" aria-hidden="true">Доменико Адамини · 1823–1827</p>
     </section>
 
+    <!-- БЕГУЩАЯ СТРОКА -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Доменико Адамини</span><i>✦</i><span>Поздний классицизм</span><i>✦</i><span>Марсово поле</span><i>✦</i><span>Рустовка</span><i>✦</i><span>Угловой объём</span><i>✦</i>
+        <span>Доменико Адамини</span><i>✦</i><span>Поздний классицизм</span><i>✦</i><span>Марсово поле</span><i>✦</i><span>Рустовка</span><i>✦</i><span>Угловой объём</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ДОМ В ЦИФРАХ -->
+    <section class="facts" aria-label="Дом в цифрах">
+      <div class="container facts__grid">
+        <div class="fact" data-reveal>
+          <b class="fact__num" data-count="1823" data-from="1700">1823</b>
+          <span class="fact__label">год начала строительства</span>
+        </div>
+        <div class="fact" data-reveal style="--d:.08s">
+          <b class="fact__num" data-count="1827" data-from="1700">1827</b>
+          <span class="fact__label">год завершения работ</span>
+        </div>
+        <div class="fact" data-reveal style="--d:.16s">
+          <b class="fact__num" data-count="3" data-from="0">3</b>
+          <span class="fact__label">этажа и выразительный угловой объём</span>
+        </div>
+        <div class="fact" data-reveal style="--d:.24s">
+          <b class="fact__num" data-count="1941" data-from="1800">1941</b>
+          <span class="fact__label">год, когда в здание попала авиабомба</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01. ИСТОРИЯ -->
     <section class="content-section history-section" id="history">
       <div class="container">
-        <h2 class="section-title">01. История дома Адамини</h2>
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><b>01</b> История</span>
+          <h2 class="section-title">История дома Адамини</h2>
+        </header>
+
         <div class="history-grid">
-          <div class="history-copy">
-            <p>Здание построили в 1823–1827 годах по проекту архитектора Доменико Адамини.</p>
-            <p>Дом возвели для купца Антонова — отсюда и второе название. Это яркий образец позднего классицизма: трёхэтажное здание с выразительным угловым объёмом и рустовкой в нижнем ярусе, характерной для петербургской застройки той эпохи.</p>
-            <p>Дом сразу стал заметной городской доминантой на перекрёстке у Марсова поля. В XIX веке здесь жили и бывали представители творческой интеллигенции, а помещения активно сдавали под магазины и конторы — типичный «доходный» характер здания.</p>
-          </div>
-          <figure class="history-photo">
-            <img src="assets/history.jpg" alt="Фасад Дома Адамини на углу улицы">
+          <figure class="history-photo" data-reveal>
+            <div class="history-photo__frame">
+              <img src="assets/history.jpg" alt="Фасад Дома Адамини на углу улицы" loading="lazy">
+            </div>
+            <figcaption>Угловой фасад дома</figcaption>
           </figure>
-          <div class="history-copy">
-            <p>В начале XX века дом оставался крупным доходным зданием. Во время Первой мировой войны и в революционный период его статус не менялся кардинально: он продолжал использоваться как жилой и коммерческий объект, хотя экономическая ситуация и управление городской недвижимостью сильно менялись.</p>
-            <p>Во время Великой Отечественной войны дом Адамини серьёзно пострадал. В 1941 году в здание попала авиабомба, из-за чего часть конструкций была разрушена. В условиях блокады любые восстановительные работы были крайне ограничены, но сохранение и восстановление значимых городских зданий считалось важной задачей для города.</p>
+
+          <div class="history-text">
+            <p class="history-lead" data-reveal>Здание построили в 1823–1827 годах по проекту архитектора Доменико Адамини.</p>
+
+            <div class="history-cols" data-reveal>
+              <p>Дом возвели для купца Антонова — отсюда и второе название. Это яркий образец позднего классицизма: трёхэтажное здание с выразительным угловым объёмом и рустовкой в нижнем ярусе, характерной для петербургской застройки той эпохи.</p>
+              <p>Дом сразу стал заметной городской доминантой на перекрёстке у Марсова поля. В XIX веке здесь жили и бывали представители творческой интеллигенции, а помещения активно сдавали под магазины и конторы — типичный «доходный» характер здания.</p>
+            </div>
+
+            <blockquote class="pullquote" data-reveal>
+              <span aria-hidden="true">«</span>Заметная городская доминанта на перекрёстке у Марсова поля<span aria-hidden="true">»</span>
+            </blockquote>
+
+            <div class="history-cols" data-reveal>
+              <p>В начале XX века дом оставался крупным доходным зданием. Во время Первой мировой войны и в революционный период его статус не менялся кардинально: он продолжал использоваться как жилой и коммерческий объект, хотя экономическая ситуация и управление городской недвижимостью сильно менялись.</p>
+              <p>Во время Великой Отечественной войны дом Адамини серьёзно пострадал. В 1941 году в здание попала авиабомба, из-за чего часть конструкций была разрушена. В условиях блокады любые восстановительные работы были крайне ограничены, но сохранение и восстановление значимых городских зданий считалось важной задачей для города.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- 02. ХРОНОЛОГИЯ -->
+    <section class="content-section timeline-section" id="timeline">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><b>02</b> Хронология</span>
+          <h2 class="section-title">Двести лет на одном углу</h2>
+        </header>
+
+        <ol class="timeline" id="timeline-list">
+          <li class="tl-item" data-reveal>
+            <span class="tl-year">1823–1827</span>
+            <h3>Строительство</h3>
+            <p>По проекту Доменико Адамини возводят трёхэтажное здание в стиле позднего классицизма для купца Антонова.</p>
+          </li>
+          <li class="tl-item" data-reveal>
+            <span class="tl-year tl-year--text">XIX век</span>
+            <h3>Доходный дом</h3>
+            <p>Здесь живут и бывают представители творческой интеллигенции, а помещения сдают под магазины и конторы.</p>
+          </li>
+          <li class="tl-item" data-reveal>
+            <span class="tl-year tl-year--text">Начало XX века</span>
+            <h3>Перемены вокруг</h3>
+            <p>Дом остаётся крупным доходным зданием: жилым и коммерческим объектом даже в годы войны и революции.</p>
+          </li>
+          <li class="tl-item tl-item--dark" data-reveal>
+            <span class="tl-year">1941</span>
+            <h3>Авиабомба</h3>
+            <p>Попадание бомбы разрушает часть конструкций. В блокаду восстановительные работы крайне ограничены.</p>
+          </li>
+          <li class="tl-item tl-item--now" data-reveal>
+            <span class="tl-year">Сегодня</span>
+            <h3>Возрождение</h3>
+            <p>Здание восстановлено и снова стоит на углу у Марсова поля.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 03. ТОГДА И СЕЙЧАС -->
+    <section class="content-section compare-section" id="then-now">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><b>03</b> Тогда и сейчас</span>
+          <h2 class="section-title">Разрушение и восстановление</h2>
+        </header>
+
+        <figure class="compare-figure" data-reveal>
+          <div class="compare" id="compare" style="--pos:50%">
+            <img class="compare__img" src="assets/gallery-11.jpg" alt="Дом Адамини после разрушений во время войны" loading="lazy">
+            <img class="compare__img compare__img--now" src="assets/hero.jpg" alt="Восстановленная колоннада Дома Адамини сегодня" loading="lazy">
+            <span class="compare__tag compare__tag--l">Военные годы</span>
+            <span class="compare__tag compare__tag--r">Сегодня</span>
+            <div class="compare__handle" aria-hidden="true"><span><svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <input class="compare__range" id="compare-range" type="range" min="0" max="100" step="0.1" value="50" aria-label="Сравнить: здание в военные годы и сегодня">
+          </div>
+          <figcaption>Потяните за ползунок, чтобы сравнить: развалины военных лет и восстановленная колоннада.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 04. АРХИТЕКТУРА -->
+    <section class="content-section style-section" id="style">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><b>04</b> Архитектура</span>
+          <h2 class="section-title">Приметы стиля</h2>
+        </header>
+
+        <div class="panels" id="panels" data-reveal>
+          <button class="panel is-active" type="button" aria-expanded="true">
+            <img src="assets/gallery-06.jpg" alt="" loading="lazy" style="object-position:50% 50%">
+            <span class="panel__num">01</span>
+            <span class="panel__body">
+              <h3>Колоннада и фронтон</h3>
+              <p>Центральный объём под треугольным фронтоном — узнаваемый почерк позднего классицизма.</p>
+            </span>
+          </button>
+          <button class="panel" type="button" aria-expanded="false">
+            <img src="assets/gallery-03.jpg" alt="" loading="lazy" style="object-position:50% 70%">
+            <span class="panel__num">02</span>
+            <span class="panel__body">
+              <h3>Рустовка нижнего яруса</h3>
+              <p>Арочные окна и рустованный первый этаж образуют тяжёлое основание для лёгких верхних этажей.</p>
+            </span>
+          </button>
+          <button class="panel" type="button" aria-expanded="false">
+            <img src="assets/gallery-10.jpg" alt="" loading="lazy" style="object-position:50% 40%">
+            <span class="panel__num">03</span>
+            <span class="panel__body">
+              <h3>Угловой объём</h3>
+              <p>Выразительный округлый угол — главный акцент здания на перекрёстке.</p>
+            </span>
+          </button>
+          <button class="panel" type="button" aria-expanded="false">
+            <img src="assets/gallery-08.jpg" alt="" loading="lazy" style="object-position:50% 50%">
+            <span class="panel__num">04</span>
+            <span class="panel__body">
+              <h3>Лестница</h3>
+              <p>Кованые перила и глубокий пролёт: взгляд снизу вверх на парадную лестницу дома.</p>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. ВИДЕО -->
     <section class="content-section video-section" id="video">
       <div class="container">
-        <h2 class="section-title">02. Видео о доме Адамини</h2>
-        <figure class="video-figure">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><b>05</b> Видео</span>
+          <h2 class="section-title">Видео о доме Адамини</h2>
+        </header>
+        <figure class="video-figure" data-reveal>
           <button class="video-preview" id="open-video" type="button" data-video-src="assets/videos/dom-adamini.mp4" aria-label="Воспроизвести видео">
-            <img src="assets/video-poster.jpg" alt="Дом Адамини: архивная фотография и современный вид здания">
+            <img src="assets/video-poster.jpg" alt="Дом Адамини: архивная фотография и современный вид здания" loading="lazy">
+            <span class="video-preview__chip"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg> Смотреть фильм</span>
           </button>
           <figcaption>«Дом в прошлом и настоящем: история разрушения и восстановления»</figcaption>
         </figure>
       </div>
     </section>
 
+    <!-- 06. ГАЛЕРЕЯ -->
     <section class="content-section gallery-section" id="gallery">
       <div class="container">
-        <h2 class="section-title">03. Галерея</h2>
-        <div class="gallery-grid" aria-label="Фотографии Дома Адамини">
-          <div class="gallery-column">
-            <button class="gallery-item" type="button"><img src="assets/gallery-01.jpg" alt="Дом Адамини у канала на закате"></button>
-            <button class="gallery-item" type="button"><img src="assets/gallery-02.jpg" alt="Дом Адамини со стороны канала"></button>
-            <button class="gallery-item" type="button"><img src="assets/gallery-03.jpg" alt="Фасад здания вечером зимой"></button>
-          </div>
-          <div class="gallery-column">
-            <button class="gallery-item" type="button"><img src="assets/gallery-04.jpg" alt="Историческая фотография фасада"></button>
-            <button class="gallery-item" type="button"><img src="assets/gallery-05.jpg" alt="Лестница и перила внутри здания"></button>
-            <button class="gallery-item" type="button"><img src="assets/gallery-06.jpg" alt="Главный фасад Дома Адамини зимой"></button>
-          </div>
-          <div class="gallery-column">
-            <button class="gallery-item" type="button"><img src="assets/gallery-07.jpg" alt="Дом Адамини и канал зимой"></button>
-            <button class="gallery-item" type="button"><img src="assets/gallery-08.jpg" alt="Вид сверху на лестничный пролёт"></button>
-            <button class="gallery-item" type="button"><img src="assets/gallery-09.jpg" alt="Архивный вид повреждённого здания"></button>
-          </div>
-          <div class="gallery-column">
-            <button class="gallery-item" type="button"><img src="assets/gallery-10.jpg" alt="Угловой фасад здания в солнечный день"></button>
-            <button class="gallery-item" type="button"><img src="assets/gallery-11.jpg" alt="Дом Адамини после разрушений во время войны"></button>
-            <button class="gallery-item" type="button"><img src="assets/gallery-12.jpg" alt="Интерьер с колоннами и лестницей"></button>
-          </div>
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><b>06</b> Галерея</span>
+          <h2 class="section-title">Галерея</h2>
+        </header>
+
+        <div class="filters" id="filters" role="group" aria-label="Фильтр фотографий" data-reveal>
+          <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">Все</button>
+          <button type="button" class="chip" data-filter="now" aria-pressed="false">Сегодня</button>
+          <button type="button" class="chip" data-filter="archive" aria-pressed="false">Архив</button>
+          <button type="button" class="chip" data-filter="interior" aria-pressed="false">Интерьеры</button>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid" aria-label="Фотографии Дома Адамини">
+          <button class="gallery-item" type="button" data-tag="now" data-label="Сегодня"><img src="assets/gallery-01.jpg" width="886" height="750" loading="lazy" alt="Дом Адамини у канала на закате"></button>
+          <button class="gallery-item" type="button" data-tag="archive" data-label="Архив"><img src="assets/gallery-04.jpg" width="4034" height="2457" loading="lazy" alt="Историческая фотография фасада"></button>
+          <button class="gallery-item" type="button" data-tag="now" data-label="Сегодня"><img src="assets/gallery-02.jpg" width="550" height="413" loading="lazy" alt="Дом Адамини со стороны канала"></button>
+          <button class="gallery-item" type="button" data-tag="interior" data-label="Интерьер"><img src="assets/gallery-08.jpg" width="900" height="1200" loading="lazy" alt="Вид сверху на лестничный пролёт"></button>
+          <button class="gallery-item" type="button" data-tag="now" data-label="Сегодня"><img src="assets/gallery-03.jpg" width="1170" height="490" loading="lazy" alt="Фасад здания вечером зимой"></button>
+          <button class="gallery-item" type="button" data-tag="archive" data-label="Архив"><img src="assets/gallery-11.jpg" width="1500" height="1079" loading="lazy" alt="Дом Адамини после разрушений во время войны"></button>
+          <button class="gallery-item" type="button" data-tag="interior" data-label="Интерьер"><img src="assets/gallery-05.jpg" width="900" height="600" loading="lazy" alt="Лестница и перила внутри здания"></button>
+          <button class="gallery-item" type="button" data-tag="now" data-label="Сегодня"><img src="assets/gallery-06.jpg" width="5516" height="2723" loading="lazy" alt="Главный фасад Дома Адамини зимой"></button>
+          <button class="gallery-item" type="button" data-tag="archive" data-label="Архив"><img src="assets/gallery-09.jpg" width="800" height="533" loading="lazy" alt="Архивный вид повреждённого здания"></button>
+          <button class="gallery-item" type="button" data-tag="now" data-label="Сегодня"><img src="assets/gallery-10.jpg" width="1087" height="720" loading="lazy" alt="Угловой фасад здания в солнечный день"></button>
+          <button class="gallery-item" type="button" data-tag="now" data-label="Сегодня"><img src="assets/gallery-07.jpg" width="800" height="530" loading="lazy" alt="Дом Адамини и канал зимой"></button>
+          <button class="gallery-item" type="button" data-tag="interior" data-label="Интерьер"><img src="assets/gallery-12.jpg" width="900" height="600" loading="lazy" alt="Интерьер с колоннами и лестницей"></button>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">Made by Vidutina Yaroslava</div>
+    <div class="container">
+      <p class="site-footer__big" aria-hidden="true">Дом Адамини</p>
+      <div class="site-footer__row">
+        <span>Made by Vidutina Yaroslava</span>
+        <a href="#top" class="to-top">Наверх <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
   </footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Просмотр фотографии">
     <button class="modal-close" id="close-lightbox" type="button" aria-label="Закрыть">×</button>
-    <img id="lightbox-image" src="" alt="">
+    <button class="lb-nav lb-nav--prev" id="lb-prev" type="button" aria-label="Предыдущее фото">‹</button>
+    <figure class="lightbox__figure">
+      <img id="lightbox-image" src="" alt="">
+      <figcaption><span id="lb-caption"></span><em id="lb-count"></em></figcaption>
+    </figure>
+    <button class="lb-nav lb-nav--next" id="lb-next" type="button" aria-label="Следующее фото">›</button>
   </div>
 
   <div class="video-modal" id="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Видео о доме Адамини">
