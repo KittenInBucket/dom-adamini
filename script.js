@@ -161,6 +161,62 @@
 
   const visibleItems = () => galleryItems.filter((item) => !item.hidden);
 
+  /* ---------- Галерея: ровные ряды, нижний край — по линейке ---------- */
+  const grid = $('#gallery-grid');
+
+  function partition(ratios, k) {
+    // делим фото на k рядов так, чтобы суммы пропорций были максимально близки
+    const n = ratios.length;
+    k = Math.max(1, Math.min(k, n));
+    const pre = [0];
+    ratios.forEach((r, i) => pre[i + 1] = pre[i] + r);
+    const target = pre[n] / k;
+    const cost = Array.from({ length: k + 1 }, () => Array(n + 1).fill(Infinity));
+    const cut = Array.from({ length: k + 1 }, () => Array(n + 1).fill(0));
+    cost[0][0] = 0;
+    for (let r = 1; r <= k; r++) {
+      for (let i = r; i <= n; i++) {
+        for (let m = r - 1; m < i; m++) {
+          const c = cost[r - 1][m] + Math.pow(pre[i] - pre[m] - target, 2);
+          if (c < cost[r][i]) { cost[r][i] = c; cut[r][i] = m; }
+        }
+      }
+    }
+    const rows = [];
+    let end = n;
+    for (let r = k; r >= 1; r--) { const s = cut[r][end]; rows.unshift([s, end]); end = s; }
+    return rows;
+  }
+
+  function layoutGallery() {
+    const items = galleryItems.filter((el) => !el.hidden);
+    if (!items.length) return;
+    const W = grid.clientWidth;
+    const gap = parseFloat(getComputedStyle(grid).columnGap) || 14;
+    const targetH = W < 560 ? 150 : W < 900 ? 200 : 250;
+    const ratios = items.map((el) => {
+      const img = $('img', el);
+      return Number(img.getAttribute('width')) / Number(img.getAttribute('height'));
+    });
+    const total = ratios.reduce((a, b) => a + b, 0);
+    const rowsCount = Math.max(1, Math.round((total * targetH) / W));
+    partition(ratios, rowsCount).forEach(([from, to]) => {
+      const count = to - from;
+      const sum = ratios.slice(from, to).reduce((a, b) => a + b, 0);
+      const h = (W - gap * (count - 1)) / sum;
+      for (let i = from; i < to; i++) {
+        items[i].style.width = `${(ratios[i] * h).toFixed(2)}px`;
+        items[i].style.height = `${h.toFixed(2)}px`;
+      }
+    });
+    grid.classList.add('is-justified');
+  }
+  let layoutTimer;
+  window.addEventListener('resize', () => { clearTimeout(layoutTimer); layoutTimer = setTimeout(layoutGallery, 80); });
+  window.addEventListener('load', layoutGallery);
+  layoutGallery();
+
+
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
       const filter = chip.dataset.filter;
@@ -175,6 +231,7 @@
         item.hidden = !show;
         if (show) item.style.animationDelay = `${Math.min(n++, 8) * 0.05}s`;
       });
+      layoutGallery();
     });
   });
 
