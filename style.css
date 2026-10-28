@@ -311,17 +311,7 @@ body::after {
   letter-spacing: .015em;
   text-wrap: balance;
 }
-/* рукописное подчёркивание под заголовком */
-.section-title::after {
-  content: "";
-  display: block;
-  width: min(100%, 460px);
-  height: 18px;
-  margin: 2px 0 0 8px;
-  background-color: var(--ochre);
-  -webkit-mask: center / 100% 100% no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 22'%3E%3Cpath d='M2 17 C45 5 60 -2 83 4 S72 20 115 16 L210 4 C230 2 233 13 263 12 S355 5 418 2' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
-  mask: center / 100% 100% no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 22'%3E%3Cpath d='M2 17 C45 5 60 -2 83 4 S72 20 115 16 L210 4 C230 2 233 13 263 12 S355 5 418 2' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
-}
+
 
 /* ---------- 01. История ---------- */
 .history-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
@@ -762,6 +752,8 @@ body.modal-open { overflow: hidden; }
   .history-photo__frame { max-width: 380px; margin-bottom: 8px; }
   .history-photo figcaption { margin-top: 28px; }
   
+}
+
 /* ---------- Телефон ---------- */
 @media (max-width: 760px) {
   body { font-size: 16px; }
@@ -790,7 +782,6 @@ body.modal-open { overflow: hidden; }
   .scroll-down__icon { width: 16px; height: 26px; }
 
   .history-cols { columns: 1; font-size: 16px; }
-  .section-title::after { height: 13px; width: min(100%, 300px); }
 
   /* хронология — одна колонка слева */
   .timeline::before, .timeline::after { left: 7px; }
@@ -883,4 +874,25 @@ body.modal-open { overflow: hidden; }
   .panel:not(.is-active) .panel__body h3 { font-size: clamp(40px, 11vw, 46px); line-height: 1; }
   .panel:not(.is-active) .panel__body { padding-left: 78px; padding-right: 12px; }
   .panel.is-active .panel__body p { font-size: 17px; }
+}
+
+/* ---------- Телефон: читаемый шрифт для текста и названий деталей ---------- */
+@media (max-width: 760px) {
+  .history-lead,
+  .pullquote,
+  .video-figure figcaption,
+  .panel__body h3 {
+    font-family: var(--body);
+    font-weight: 400;
+    letter-spacing: normal;
+  }
+
+  .history-lead { font-size: 18px; line-height: 1.6; }
+  .pullquote { font-size: 20px; line-height: 1.5; }
+  .video-figure figcaption { font-size: 16px; line-height: 1.6; }
+  .panel__body h3,
+  .panel:not(.is-active) .panel__body h3 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
 }
