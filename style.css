@@ -937,3 +937,49 @@ body.modal-open { overflow: hidden; }
   .fact__num { font-size: clamp(44px, 13vw, 76px); }
   .fact__label { max-width: 100%; overflow-wrap: anywhere; }
 }
+
+/* ==========================================================
+   Телефон — финальные правки (этот блок должен идти последним)
+   1) все заголовки секций одного размера и не вылезают за экран
+   2) цифры в карточках «Приметы стиля» не налезают на текст
+   3) фотографии компактнее
+   ========================================================== */
+@media (max-width: 760px) {
+  :root { --h-size: clamp(34px, 10vw, 42px); }
+
+  /* один размер для всех заголовков секций */
+  .section-title {
+    font-size: var(--h-size);
+    line-height: 1.12;
+    letter-spacing: .01em;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+  .section-head { margin-bottom: 28px; }
+
+  /* годы в хронологии — подзаголовки, заметно меньше */
+  .tl-year { font-size: clamp(32px, 9vw, 38px); line-height: 1.1; }
+  .tl-year--text { font-size: 20px; }
+
+  /* карточки «Приметы стиля»: цифра в своей колонке, текст правее */
+  .panel { height: 96px; }
+  .panel.is-active { height: 380px; }
+  .panel__num { left: 16px; font-size: 36px; width: 56px; }
+  .panel:not(.is-active) .panel__body { padding-left: 88px; padding-right: 14px; }
+  .panel.is-active .panel__body { padding: 20px 18px 22px; }
+  .panel__body h3,
+  .panel:not(.is-active) .panel__body h3 { font-size: 21px; line-height: 1.25; }
+  .panel.is-active .panel__body p { font-size: 16px; }
+
+  /* фото в блоке «История» — компактное, жёлтая подложка помещается в экран */
+  .history-photo__frame {
+    width: calc(100% - 18px);
+    max-width: 280px;
+    margin-bottom: 0;
+  }
+  .history-photo img { aspect-ratio: 4 / 5; object-position: center 40%; }
+  .history-photo figcaption { margin-top: 28px; }
+
+  /* слайдер «Тогда и сейчас» ниже по высоте */
+  .compare { aspect-ratio: 1 / 1; }
+}
